@@ -191,10 +191,28 @@ Results in:
 <script type="text/javascript" src="scripts/that.js"></script>
 ```
 
+#### options.strictXML
+
+Type: `Boolean`
+Defaul: `false`
+
+Adds `//<![CDATA[ //]]>` block to the script tag to prevent some XML parsers from changing the empty tag (`<script></script>`) into a self-closed tag (`<script />`). This can be an issue with pre-processed HTML in JSPX.
+
+```html
+<!-- build:js scripts/combined.js -->
+<script type="text/javascript" src="scripts/this.js"></script>
+<script type="text/javascript" src="scripts/that.js"></script>
+<!-- endbuild -->
+```
+
+```html
+<script type="text/javascript" src="scripts/combined.js">//<![CDATA[ //]]></script>
+```
+
 ## Contributing
 
 See the [CONTRIBUTING Guidelines](https://github.com/jonkemp/useref/blob/master/CONTRIBUTING.md)
 
 ## License
 
-MIT © [Jonathan Kemp](http://jonkemp.com)
+MIT Â© [Jonathan Kemp](http://jonkemp.com)
